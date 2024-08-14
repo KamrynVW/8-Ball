@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>8-Ball: Main Menu</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+
+    <body class="bg-gradient-to-r from-sky-300 to-blue-900">
+        
+        <div class="p-6 bg-gradient-to-r from-sky-300 to-blue-900 border-8 border-black">
+            <h1 class="font-bold text-blue-900 text-center text-4xl">8-Ball</h1>
+        </div>
+
+        <form id="form" action="Shooting.html" method="post">
+            <input type="hidden" id="playing" name="playing" value="0"/>
+            <input type="hidden" id="gameType" name="gameType"/>
+            <div class="flex flex-1">
+                <div class="flex-1 p-6 border-8 border-black bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500">
+                    <center><label for="player1Name" class="font-bold text-center text-3xl">Player One Name: </label>
+                    <br><br><input class="text-center text-3xl" type="text" id="player1Name" name="player1Name" size="8"/></center>
+                </div>
+
+                <div class="flex-1 p-6 border-8 border-black bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500">
+                    <center><label for="gameName" class="font-bold text-center text-3xl">Game Name:</label>
+                    <br><br><input class="text-center text-3xl" type="text" id="gameName" name="gameName" size="8"/></center>
+                </div>
+
+                <div class="flex-1 p-6 border-8 border-black bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500">
+                    <center><label for="player2Name" class="font-bold text-center text-3xl">Player Two Name:</label>
+                    <br><br><input class="text-center text-3xl" type="text" id="player2Name" name="player2Name" size="8"/></center>
+                </div>
+            </div>
+
+            <div style="padding-bottom: 200px;"></div>
+
+            <div class="text-center">
+                <button class="text-center p-5 text-bold text-4xl border-8 border-black bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500" type="button" onclick="validateForm()">Play Game</button>
+                <button class="text-center p-5 text-bold text-4xl border-8 border-black bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500" type="button" onclick="validateDemoForm()">Play Demo</button>
+            </div>
+        </form>
+
+        <script>
+            function validateForm() {
+                var text1 = document.getElementById("player1Name").value
+                var text2 = document.getElementById("gameName").value
+                var text3 = document.getElementById("player2Name").value
+
+                if(text1 == '' || text2 == '' || text3 == '') {
+                    alert("Fill all required text fields.")
+                } else {
+                    document.getElementById("gameType").value = 1
+                    document.getElementById("form").submit()
+                }
+            }
+
+            function validateDemoForm() {
+                var text1 = document.getElementById("player1Name").value
+                var text2 = document.getElementById("gameName").value
+                var text3 = document.getElementById("player2Name").value
+
+                if(text1 == '' || text2 == '' || text3 == '') {
+                    alert("Fill all required text fields.")
+                } else {
+                    document.getElementById("gameType").value = 2
+                    document.getElementById("form").submit()
+                }
+            }
+        </script>
+    </body>
+</html>
